@@ -9,6 +9,6 @@ class Wall(Turtle):
         random_color = random.choice(colors)
         self.shape("square")
         self.penup()
-        self.turtlesize(stretch_wid=1, stretch_len=4)
+        self.turtlesize(stretch_wid=1, stretch_len=3)
         self.color(random_color)
         self.setposition(xcor, ycor)
