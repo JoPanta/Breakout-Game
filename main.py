@@ -36,7 +36,6 @@ screen.listen()
 screen.onkeypress(paddle.move_left, "Left")
 screen.onkeypress(paddle.move_right, "Right")
 
-
 game_is_on = True
 
 while game_is_on:
@@ -45,7 +44,10 @@ while game_is_on:
     ball.move()
     for obstacle in obstacles:
         if ball.distance(obstacle) < 35:
-            print("hit")
+            if obstacle.fillcolor() == "dark green":
+                paddle.turtlesize(stretch_wid=0.5, stretch_len=7)
+            if obstacle.fillcolor() == "red":
+                paddle.turtlesize(stretch_wid=0.5, stretch_len=4)
             ball.bounce_y()
             obstacle.hideturtle()
             obstacles.remove(obstacle)
@@ -55,7 +57,6 @@ while game_is_on:
     if ball.xcor() > 380 or ball.xcor() < -380:
         ball.bounce_x()
     if ball.distance(paddle) < 25:
-        print(ball.distance(paddle))
         ball.bounce_y()
     if len(obstacles) == 0:
         turtle.write("VICTORY")
