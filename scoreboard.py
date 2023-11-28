@@ -11,10 +11,11 @@ class Scoreboard(Turtle):
         self.color("white")
         self.goto(-360, 360)
 
-    def update_scoreboard(self):
+    def update_score(self):
         self.write(f"Score: {self.score}", False, "left", ("Verdana", 20, "normal"))
+
 
     def player_score(self):
         self.score += 100
         self.clear()
-        self.update_scoreboard()
+        self.update_score()
